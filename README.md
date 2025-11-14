@@ -47,23 +47,23 @@ Server runs at **http://localhost:8080**
 
 ## 🐳 Docker
 
-### Quick Start
+### Option 1: Use Pre-built Image (Recommended)
+
+Use the official image from Docker Hub:
 
 ```bash
-# Build image
-docker build -t altcha-server .
-
-# Run container
-docker run -p 8080:8080 -e ALTCHA_HMAC_KEY="your-secret-key" altcha-server
+docker run -p 8080:8080 \
+  -e ALTCHA_HMAC_KEY="your-secret-key-here" \
+  shroomlife/altcha-server:latest
 ```
 
-### Using docker-compose.yml
+**With docker-compose.yml:**
 
 ```yaml
 version: '3.8'
 services:
   altcha:
-    build: .
+    image: shroomlife/altcha-server:latest
     ports:
       - "8080:8080"
     environment:
@@ -78,8 +78,17 @@ Then run:
 docker-compose up -d
 ```
 
-### Scripts
+### Option 2: Build Your Own Image
 
+```bash
+# Build image
+docker build -t altcha-server .
+
+# Run container
+docker run -p 8080:8080 -e ALTCHA_HMAC_KEY="your-secret-key" altcha-server
+```
+
+**Scripts:**
 ```bash
 bun run docker:build  # Build Docker image
 bun run docker:run    # Run with .env file
@@ -167,17 +176,13 @@ Returns `{"verified": true}` or `{"verified": false, "error": "..."}`.
    bun update
    ```
 
-## 📦 Deploy to Docker Hub
+## 🌐 Docker Hub
 
+Official image: [shroomlife/altcha-server](https://hub.docker.com/r/shroomlife/altcha-server)
+
+Pull the latest version:
 ```bash
-# Tag image
-docker tag altcha-server yourusername/altcha-server:latest
-
-# Push
-docker push yourusername/altcha-server:latest
-
-# Use anywhere
-docker run -p 8080:8080 -e ALTCHA_HMAC_KEY="secret" yourusername/altcha-server:latest
+docker pull shroomlife/altcha-server:latest
 ```
 
 ## 📄 License
