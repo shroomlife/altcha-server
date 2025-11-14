@@ -17,7 +17,7 @@
   "scripts": {
     "dev": "bun run --watch src/index.ts",
     "docker:build": "docker build -t shroomlife/altcha-server:latest .",
-    "docker:publish": "docker build -t shroomlife/altcha-server:1.3.0 . && docker push shroomlife/altcha-server:1.3.0",
+    "docker:publish": "docker build -t shroomlife/altcha-server:1.3.0 -t shroomlife/altcha-server:latest . && docker push shroomlife/altcha-server:1.3.0 && docker push shroomlife/altcha-server:latest",
     "docker:run": "docker run -p 8080:8080 --env-file .env shroomlife/altcha-server:latest",
     "start": "bun run src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
