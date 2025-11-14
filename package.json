@@ -11,7 +11,7 @@
     "bun"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "shroomlife",
   "type": "module",
   "module": "src/index.js",
   "scripts": {
