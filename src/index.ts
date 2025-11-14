@@ -84,7 +84,7 @@ const app = new Elysia()
     () => ({
       status: "ok",
       timestamp: new Date().toISOString(),
-      version: "1.0.0",
+      version: "1.3.0",
     }),
     {
       response: HealthResponseSchema,
@@ -218,5 +218,4 @@ ${chalk.bold("Configuration")}
   CORS Origin:   ${CORS_ORIGIN}
 `);
 
-export default app;
 export type App = typeof app;

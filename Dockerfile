@@ -10,7 +10,7 @@ WORKDIR /app
 FROM base AS dependencies
 
 # Copy package files
-COPY package.json bun.lockb* ./
+COPY package.json bun.lock* ./
 
 # Install dependencies
 RUN bun install --frozen-lockfile --production
@@ -21,7 +21,7 @@ RUN bun install --frozen-lockfile --production
 FROM base AS build
 
 # Copy package files
-COPY package.json bun.lockb* ./
+COPY package.json bun.lock* ./
 
 # Install all dependencies (including dev)
 RUN bun install --frozen-lockfile
